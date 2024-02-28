@@ -43,7 +43,7 @@ function User() {
                 <Link to={game.self}>{game.game_id}</Link>
               </td>
               <td>
-                <Link to={`/users/${game.owner_id}`}>{game.owner_id}</Link>
+                <Link to={game.owner.self}>{game.owner.username}</Link>
               </td>
               <td>
                 {game.black_player ? (
