@@ -3,7 +3,7 @@ import { NewUserProps } from "./Auth/Auth";
 import { BaseUser, DetailedUser } from "./Games/Games";
 import { DetailedGame } from "./Games/Game/Game";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL as string;
 
 const api = axios.create({
   baseURL: API_URL,
