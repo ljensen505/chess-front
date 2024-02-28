@@ -1,0 +1,25 @@
+.board {
+  border: 1px solid #999;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  width: 90vw;
+  height: 90vw;
+  max-width: 600px;
+  max-height: 600px;
+  margin: 0 auto;
+}
+
+.square {
+  position: relative;
+  overflow: hidden;
+}
+
+.square.white {
+  background-color: #acffcb;
+}
+
+.square.black {
+  background-color: #006531;
+}
