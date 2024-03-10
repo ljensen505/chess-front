@@ -14,7 +14,7 @@ export interface BaseUser {
 }
 
 export interface DetailedUser extends BaseUser {
-  email: string;
+  email?: string;
   name: string;
   auth0_id: string;
 }
