@@ -6,10 +6,10 @@ import RegistrationModal from "./RegistrationModal";
 import { Container } from "react-bootstrap";
 
 export interface NewUserProps {
-  email: string;
   name: string;
   auth0_id: string;
   username: string;
+  email?: string;
 }
 
 function Auth() {

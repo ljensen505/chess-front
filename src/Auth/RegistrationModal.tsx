@@ -21,10 +21,15 @@ function RegistrationModal(props: RegistrationModalProps) {
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!props.token || !newUser) {
-      console.error("Token or new user not found");
+    if (!props.token) {
+      console.error("No token found");
       return;
     }
+    if (!newUser) {
+      console.error("No user found");
+      return;
+    }
+
     postUser(props.token, newUser)
       .then(() => {
         props.onHide();
@@ -39,13 +44,7 @@ function RegistrationModal(props: RegistrationModalProps) {
   };
 
   useEffect(() => {
-    if (
-      !props.token ||
-      !username ||
-      !props.auth0_id ||
-      !props.email ||
-      !props.name
-    ) {
+    if (!props.token || !username || !props.auth0_id || !props.name) {
       return;
     }
     const newUser: NewUserProps = {
@@ -55,7 +54,7 @@ function RegistrationModal(props: RegistrationModalProps) {
       auth0_id: props.auth0_id,
     };
     setNewUser(newUser);
-  }, [props.token, username, props.auth0_id, props.email, props.name]);
+  }, [props, username]);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
